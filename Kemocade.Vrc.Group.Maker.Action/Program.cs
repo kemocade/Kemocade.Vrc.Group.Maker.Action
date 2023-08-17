@@ -21,10 +21,6 @@ if (parser.Errors.ToArray() is { Length: > 0 } errors)
 }
 ActionInputs inputs = parser.Value;
 
-// Find Local Files
-DirectoryInfo workspace = new(inputs.Workspace);
-DirectoryInfo output = workspace.CreateSubdirectory(inputs.Output);
-
 // Authentication credentials
 Configuration config = new()
 {

@@ -4,12 +4,6 @@ namespace Kemocade.Vrc.Group.Maker.Action;
 
 internal record ActionInputs
 {
-    [Option('w', "workspace", Required = true)]
-    public string Workspace { get; init; } = null!;
-
-    [Option('o', "output", Required = true)]
-    public string Output { get; init; } = null!;
-
     [Option('u', "username", Required = true)]
     public string Username { get; init; } = null!;
 

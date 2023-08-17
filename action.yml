@@ -4,12 +4,6 @@ branding:
   icon: globe
   color: blue
 inputs:
-  workspace:
-    description: 'The workspace directory.'
-    default: '/github/workspace'
-  output:
-    description: 'The directory to write output inside of (relative to workspace). Example, "path/to/output".'
-    required: true
   username:
     description: 'VRChat Username'
     required: true
@@ -30,10 +24,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - '-w'
-  - ${{ inputs.workspace }}
-  - '-o'
-  - ${{ inputs.output }}
   - '-u'
   - ${{ inputs.username }}
   - '-p'
