@@ -1,5 +1,5 @@
-name: 'Kemocade VRC Group Tracker Action'
-description: 'GitHub Action for automatically tracking Group information from the VRChat API'
+name: 'Kemocade VRC Group Maker Action'
+description: 'GitHub Action for automatically making VRChat Groups'
 branding:
   icon: globe
   color: blue
@@ -40,5 +40,7 @@ runs:
   - ${{ inputs.password }}
   - '-k'
   - ${{ inputs.key }}
-  - '-g'
-  - ${{ inputs.groups }}
+  - '-s'
+  - ${{ inputs.shortcode }}
+  - '-d'
+  - ${{ inputs.discriminators }}
