@@ -76,8 +76,8 @@ try
     WriteLine($"Created Group: {groupKey}");
     await WaitSeconds(1);
 
-    string[] discriminators = inputs.Discriminators.Split(',');
-    WriteLine($"Checking for {discriminators.Length} discriminators: {string.Join(",", discriminators)}");
+    string[] discriminators = inputs.Discriminators.Split('.');
+    WriteLine($"Checking for {discriminators.Length} discriminators: {string.Join(".", discriminators)}");
     if (!discriminators.Contains(group.Discriminator))
     {
         WriteLine($"{group.Discriminator} is not one of the target discriminators.");
