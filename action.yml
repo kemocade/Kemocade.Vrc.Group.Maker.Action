@@ -13,6 +13,9 @@ inputs:
   key:
     description: 'VRChat 2FA secret key'
     required: true
+  name:
+    description: 'Desired VRChat Group Name'
+    required: true
   shortcode:
     description: 'Desired VRChat Group Shortcode'
     required: true
@@ -30,6 +33,8 @@ runs:
   - ${{ inputs.password }}
   - '-k'
   - ${{ inputs.key }}
+  - '-n'
+  - ${{ inputs.name }}
   - '-s'
   - ${{ inputs.shortcode }}
   - '-d'

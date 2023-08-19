@@ -71,13 +71,21 @@ try
     }
     WriteLine($"Logged in as {currentUser.DisplayName}");
 
-    Group group = groupsApi.CreateGroup(new(name: "Kemocade", shortCode: "KEMO", roleTemplate: GroupRoleTemplate.Default));
+    Group group = groupsApi
+        .CreateGroup
+        (
+            new
+            (
+                name: inputs.Name,
+                shortCode: inputs.Shortcode,
+                roleTemplate: GroupRoleTemplate.Default
+            )
+        );
     string groupKey = $"{group.ShortCode}.{group.Discriminator}";
     WriteLine($"Created Group: {groupKey}");
     await WaitSeconds(1);
 
-    WriteLine($"discriminators: {inputs.Discriminators}");
-    string[] discriminators = inputs.Discriminators.Chunk(4).Select(ca => new string(ca)).ToArray();
+    string[] discriminators = inputs.Discriminators.Split(',');
     WriteLine($"Checking for {discriminators.Length} discriminators: {string.Join(".", discriminators)}");
     if (!discriminators.Contains(group.Discriminator))
     {
